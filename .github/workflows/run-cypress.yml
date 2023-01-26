@@ -27,8 +27,33 @@ jobs:
         env: 
           API_ROOT: http://api:8000
           ARCHIVED_DOCUMENTS_BASE_URL: https://lookInVault.com/
-          CI: False
-
+          CI: false
+          DATA_HUB_BACKEND_ACCESS_KEY_ID: ''
+          DATA_HUB_BACKEND_SECRET_ACCESS_KEY: ''
+          DATA_STORE_SERVICE_ACCESS_KEY_ID: ''
+          DATA_STORE_SERVICE_SECRET_ACCESS_KEY: ''
+          DATA_STORE_SERVICE_POSTCODE: ''
+          DATA_STORE_SERVICE_POSTCODE_TO_REGION_URL: ''
+          HELP_CENTRE_ANNOUNCMENTS_URL: ''
+          HELP_CENTRE_API_FEED: ''
+          HELP_CENTRE_ACCESS_KEY_ID: ''
+          HELP_CENTRE_SECRET_ACCESS_KEY: ''
+          HELP_CENTRE_URL: ''
+          OAUTH2_AUTH_URL: ''
+          OAUTH2_CLIENT_ID: ''
+          OAUTH2_CLIENT_SECRET: ''
+          OAUTH2_LOGOUT_URL: ''
+          OAUTH2_REDIRECT_URL: ''
+          OAUTH2_TOKEN_FETCH_URL: ''
+          OAUTH2_USER_PROFILE_URL: ''
+          ONE_LIST_EMAIL: ''
+          POSTCODE_KEY: ''
+          SESSION_SECRET: ''
+          ZEN_EMAIL: ''
+          ZEN_TICKETS_URL: ''
+          ZEN_TOKEN: ''
+          ELASTIC_APM_SERVER_URL: ''
+          ELASTIC_APM_SECRET_TOKEN: ''
         with:
           build: npm run build
           start: npm start
