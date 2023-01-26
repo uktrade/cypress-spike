@@ -23,12 +23,12 @@ jobs:
       # Install NPM dependencies, cache them correctly
       # and run all Cypress tests
       - name: Cypress run
-        uses: cypress-io/github-action@v2
+        uses: cypress-io/github-action@v4.1.0
         env: 
           API_ROOT: http://api:8000
           ARCHIVED_DOCUMENTS_BASE_URL: https://lookInVault.com/
           CI: False
-           
+
         with:
           build: npm run build
           start: npm start
