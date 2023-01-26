@@ -19,11 +19,16 @@ jobs:
       - name: Update
         run: sudo apt-get update
       - name: Install xvfb
-        run: sudo apt-get install xvfb
+        run: sudo apt-get install xvfb lm-sensors fancontrol read-edid i2c-tools libi2c-dev python3-smbus
       # Install NPM dependencies, cache them correctly
       # and run all Cypress tests
       - name: Cypress run
         uses: cypress-io/github-action@v2
+        env: 
+          API_ROOT: http://api:8000
+          ARCHIVED_DOCUMENTS_BASE_URL: https://lookInVault.com/
+          CI: False
+           
         with:
           build: npm run build
           start: npm start
