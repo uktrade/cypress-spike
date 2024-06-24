@@ -2,20 +2,62 @@ name: Cypress Tests
 
 on: 
   push:
-    branches: [master]
+    branches: [main]
   pull_request:
-    branches: [master]
+    branches: [main]
 
 jobs:
   cypress-run:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
-      # Install NPM dependencies, cache them correctly
-      # and run all Cypress tests
-      - name: Cypress run
-        uses: cypress-io/github-action@v2
-        with:
-          build: npm run build
-          start: npm start
+        uses: actions/checkout@v3
+      - name: Start mock
+        run: make start-mock
+      - name: Run functional tests
+        run: make functional-tests
+      # - name: Setup node
+      #   uses: actions/setup-node@v3
+      #   with:
+      #     node-version: 18.7.0
+      # - name: Update
+      #   run: sudo apt-get update
+      # - name: Install xvfb
+      #   run: sudo apt-get install xvfb lm-sensors fancontrol read-edid i2c-tools libi2c-dev python3-smbus
+      # # Install NPM dependencies, cache them correctly
+      # # and run all Cypress tests
+      # - name: Cypress run
+      #   uses: cypress-io/github-action@v4.1.0
+      #   # env: 
+      #     API_ROOT: http://api:8000
+      #     ARCHIVED_DOCUMENTS_BASE_URL: https://lookInVault.com/
+      #     CI: false
+      #     DATA_HUB_BACKEND_ACCESS_KEY_ID: ''
+      #     DATA_HUB_BACKEND_SECRET_ACCESS_KEY: ''
+      #     DATA_STORE_SERVICE_ACCESS_KEY_ID: ''
+      #     DATA_STORE_SERVICE_SECRET_ACCESS_KEY: ''
+      #     DATA_STORE_SERVICE_POSTCODE: ''
+      #     DATA_STORE_SERVICE_POSTCODE_TO_REGION_URL: http://api:8000/api/v1/get-postcode-data/
+      #     HELP_CENTRE_ANNOUNCMENTS_URL: ''
+      #     HELP_CENTRE_API_FEED: ''
+      #     HELP_CENTRE_ACCESS_KEY_ID: ''
+      #     HELP_CENTRE_SECRET_ACCESS_KEY: ''
+      #     HELP_CENTRE_URL: ''
+      #     OAUTH2_AUTH_URL: ''
+      #     OAUTH2_CLIENT_ID: ''
+      #     OAUTH2_CLIENT_SECRET: ''
+      #     OAUTH2_LOGOUT_URL: ''
+      #     OAUTH2_REDIRECT_URL: ''
+      #     OAUTH2_TOKEN_FETCH_URL: ''
+      #     OAUTH2_USER_PROFILE_URL: ''
+      #     ONE_LIST_EMAIL: ''
+      #     POSTCODE_KEY: ''
+      #     SESSION_SECRET: ''
+      #     ZEN_EMAIL: ''
+      #     ZEN_TICKETS_URL: ''
+      #     ZEN_TOKEN: ''
+      #     ELASTIC_APM_SERVER_URL: ''
+      #     ELASTIC_APM_SECRET_TOKEN: ''
+      #   with:
+      #     build: npm run build
+      #     start: npm start
